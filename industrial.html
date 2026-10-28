@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Эко-Энерго — Industrial Eco Systems</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@600;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#1c1f22; --panel:#262a2e; --steel:#9aa3ab; --ink:#e8edf0; --muted:#8b959e;
+  --accent:#1f8a7a; --accent-2:#2bb5a0; --line:rgba(255,255,255,.08);
+  --margin:clamp(1rem,2.2vw,2.5rem); --section:clamp(4.5rem,10vw,7.5rem);
+  --sans:"IBM Plex Sans",system-ui,sans-serif;
+  --cond:"IBM Plex Sans Condensed",system-ui,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:clamp(1.0625rem,1rem + .25vw,1.1875rem);line-height:1.5;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{margin:0;text-wrap:balance}
+p{margin:0;max-width:46ch;text-wrap:pretty}
+:focus-visible{outline:2px solid var(--accent-2);outline-offset:3px}
+::selection{background:var(--accent);color:#04120f}
+
+.grid-bg{
+  background-image:
+    linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+  background-size:48px 48px;
+  background-attachment:fixed;
+}
+
+.bar{position:sticky;top:0;z-index:50;background:#0f1113;color:#fff;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:10px var(--margin);display:flex;justify-content:space-between;gap:16px}
+.bar a{color:var(--accent-2);text-decoration:none}
+.bar a:hover{color:#fff}
+
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:16px var(--margin);border-bottom:1px solid var(--line);background:rgba(28,31,34,.92);backdrop-filter:saturate(1.1)}
+.nav .logo{height:44px;width:auto;display:block}
+.nav ul{display:flex;gap:clamp(14px,2vw,24px);list-style:none;margin:0;padding:0;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;font-weight:500}
+.nav a{text-decoration:none}
+.nav a:hover{color:var(--ink)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 18px;background:var(--accent);color:#04120f;text-decoration:none;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.04em;border:0;cursor:pointer;transition:transform 140ms var(--ease),background 180ms var(--ease)}
+.btn:hover{background:var(--accent-2)}
+.btn:active{transform:scale(.98)}
+.btn-line{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--steel)}
+.btn-line:hover{background:rgba(255,255,255,.04)}
+
+.hero{display:grid;grid-template-columns:1.05fr .95fr;min-height:calc(100svh - 96px);border-bottom:1px solid var(--line)}
+.hero-copy{padding:clamp(36px,6vw,72px) var(--margin);display:flex;flex-direction:column;justify-content:space-between;gap:40px}
+.eyebrow{color:var(--accent-2);font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;margin:0 0 18px}
+.hero h1{font-family:var(--cond);font-size:clamp(2.75rem,6.8vw,5.6rem);line-height:.88;letter-spacing:-.02em;text-transform:uppercase;font-weight:700;max-width:11ch}
+.hero .sub{margin-top:24px;color:var(--muted);font-size:1.05rem;line-height:1.45;max-width:38ch}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.hero-visual{position:relative;border-left:1px solid var(--line);overflow:hidden;min-height:420px}
+.hero-visual img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;filter:contrast(1.05) saturate(.88)}
+.hud{position:absolute;left:16px;right:16px;bottom:16px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.hud div{background:rgba(15,17,19,.82);padding:12px 14px;font-size:11px;text-transform:uppercase;letter-spacing:.05em}
+.hud strong{display:block;font-family:var(--cond);font-size:1.35rem;color:var(--accent-2);margin-top:4px;letter-spacing:0;text-transform:none;font-weight:700}
+
+.section{padding:var(--section) var(--margin);border-bottom:1px solid var(--line)}
+.sec-h{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-2);margin:0 0 10px;font-weight:600}
+.sec-t{font-family:var(--cond);font-size:clamp(2rem,4vw,3.4rem);text-transform:uppercase;letter-spacing:-.015em;margin:0 0 36px;line-height:.95;max-width:14ch;font-weight:700}
+
+.about{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,4vw,48px)}
+.about p{color:var(--muted);font-size:1.1rem;line-height:1.55;margin-bottom:1em}
+.specs{background:var(--panel);display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line)}
+.specs div{padding:22px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.specs div:nth-child(2n){border-right:0}
+.specs span{display:block;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+.specs strong{font-family:var(--cond);font-size:1.7rem;letter-spacing:-.02em;font-weight:700}
+
+.dirs{display:grid}
+.dir{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1.35fr) 180px;gap:24px;align-items:center;padding:28px 0;border-top:1px solid var(--line)}
+.dir:last-child{border-bottom:1px solid var(--line)}
+.dir h3{font-family:var(--cond);font-size:clamp(1.5rem,2.4vw,1.85rem);text-transform:uppercase;margin:0;letter-spacing:-.01em;font-weight:700}
+.dir p{margin:0;color:var(--muted);font-size:.95rem;line-height:1.45}
+.dir img{width:180px;height:96px;object-fit:cover;justify-self:end}
+
+.offers{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.offers article{background:var(--panel);padding:26px;min-height:210px;display:flex;flex-direction:column}
+.offers .tag{color:var(--accent-2);font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;margin-bottom:16px}
+.offers h3{font-family:var(--cond);font-size:1.45rem;text-transform:uppercase;margin:0 0 12px;line-height:1.05;font-weight:700}
+.offers p{margin:0;color:var(--muted);font-size:.9rem;line-height:1.45}
+
+.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.proj{position:relative;background:var(--panel);min-height:260px;overflow:hidden}
+.proj img{width:100%;height:100%;object-fit:cover;opacity:.8;position:absolute;inset:0;transition:transform 700ms var(--ease),opacity 240ms var(--ease)}
+.proj:hover img{transform:scale(1.04);opacity:.92}
+.proj .meta{position:relative;padding:18px;display:flex;flex-direction:column;justify-content:flex-end;min-height:260px;background:linear-gradient(transparent 30%,rgba(0,0,0,.78))}
+.proj h3{margin:0 0 4px;font-family:var(--cond);font-size:1.35rem;text-transform:uppercase;font-weight:700}
+.proj span{color:var(--accent-2);font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+
+.cta{display:grid;grid-template-columns:1fr 1fr;padding:0;border-bottom:1px solid var(--line)}
+.cta .text{padding:clamp(48px,7vw,80px) var(--margin)}
+.cta h2{font-family:var(--cond);font-size:clamp(2.2rem,4.5vw,3.8rem);text-transform:uppercase;margin:0 0 14px;line-height:.95;font-weight:700}
+.cta p{color:var(--muted);margin:0 0 28px}
+.cta .phone{background:var(--accent);color:#04120f;padding:clamp(48px,7vw,80px) var(--margin);display:flex;flex-direction:column;justify-content:center}
+.cta .phone a{font-family:var(--cond);font-size:clamp(1.6rem,3.5vw,2.8rem);font-weight:700;text-decoration:none;color:inherit;letter-spacing:-.02em}
+.cta .phone span{margin-top:10px;font-size:14px;opacity:.8}
+
+footer{padding:28px var(--margin);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+footer .logo{height:36px;width:auto}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 650ms var(--ease),transform 650ms var(--ease)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .reveal,.proj img{transition:none}
+  .reveal{opacity:1;transform:none}
+  .proj:hover img{transform:none}
+}
+
+@media (max-width:900px){
+  .nav ul{display:none}
+  .hero,.about,.dir,.offers,.projects,.cta{grid-template-columns:1fr}
+  .hero-visual{min-height:320px;border-left:0;border-top:1px solid var(--line)}
+  .hero-visual img{position:relative;height:320px}
+  .hud{grid-template-columns:1fr}
+  .dir img{width:100%;height:140px;justify-self:stretch}
+}
+</style>
+</head>
+<body>
+<div class="bar">
+  <span>Вариант B · Industrial Eco Systems</span>
+  <span><a href="index.html">Сравнение</a> · <a href="clean-water.html">Вариант A</a></span>
+</div>
+
+<div class="grid-bg">
+<header>
+  <nav class="nav" aria-label="Основное">
+    <a href="#top"><img class="logo" src="../assets/logo-eko.png" width="170" height="56" alt="Эко-Энерго" /></a>
+    <ul>
+      <li><a href="#about">О нас</a></li>
+      <li><a href="#systems">Системы</a></li>
+      <li><a href="#objects">Объекты</a></li>
+      <li><a href="#contact">Контакты</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-copy">
+      <div class="reveal">
+        <p class="eyebrow">Industrial systems · Brest</p>
+        <h1>Инженерные системы для предприятий</h1>
+        <p class="sub">Очистка промышленных стоков, композитные перекрытия очистных сооружений, промышленная вентиляция и кондиционирование.</p>
+        <div class="hero-actions">
+          <a class="btn" href="tel:+375296746884">Заявка на расчёт</a>
+          <a class="btn btn-line" href="#objects">Объекты</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual reveal">
+      <img src="../assets/hero.jpg" width="1200" height="1400" alt="Очистные сооружения на промышленной площадке" />
+      <div class="hud">
+        <div>Стоки<strong>ЛОС / КОС</strong></div>
+        <div>Перекрытия<strong>до 50 м</strong></div>
+        <div>Воздух<strong>HVAC</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <p class="sec-h reveal">Компания</p>
+    <h2 class="sec-t reveal">Промышленный подряд</h2>
+    <div class="about">
+      <div class="reveal">
+        <p>ИООО «Эко-Энерго» проектирует, поставляет и монтирует инженерные системы на промышленных площадках с 2004 года.</p>
+        <p>Работаем по аттестату Министерства архитектуры и строительства РБ. География — таможенный союз и ЕС.</p>
+      </div>
+      <div class="specs reveal">
+        <div><span>С</span><strong>2004</strong></div>
+        <div><span>Диаметр крышки</span><strong>50 м</strong></div>
+        <div><span>Снег</span><strong>480 кг/м²</strong></div>
+        <div><span>Температура</span><strong>−57 °C</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="systems">
+    <p class="sec-h reveal">Направления</p>
+    <h2 class="sec-t reveal">Системы</h2>
+    <div class="dirs">
+      <article class="dir reveal">
+        <h3>Очистка стоков</h3>
+        <p>Строительство и реконструкция очистных сооружений. BIOCOS®, Triple A®, анаэробное сбраживание, INDENSE®.</p>
+        <img src="../assets/pruzhany.png" width="360" height="192" alt="Пружаны" loading="lazy" />
+      </article>
+      <article class="dir reveal">
+        <h3>Перекрытия</h3>
+        <p>Композитные крышки отстойников и иловых площадок. Стеклопластик, производство в Бресте.</p>
+        <img src="../assets/saria-volga.png" width="360" height="192" alt="Перекрытия" loading="lazy" />
+      </article>
+      <article class="dir reveal">
+        <h3>Вентиляция</h3>
+        <p>Промышленные комплексы, точный температурно-влажностный режим, автоматика.</p>
+        <img src="../assets/santa-bremor.png" width="360" height="192" alt="Санта Бремор" loading="lazy" />
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <p class="sec-h reveal">Специальные предложения</p>
+    <h2 class="sec-t reveal">Сервис</h2>
+    <div class="offers reveal">
+      <article><div class="tag">Service</div><h3>Аутсорсинг очистки</h3><p>Эксплуатация очистных сооружений силами специалистов компании.</p></article>
+      <article><div class="tag">Engineering</div><h3>Техрешения</h3><p>Разработка решений для строительства и реконструкции очистных.</p></article>
+      <article><div class="tag">Lab</div><h3>Анализы стоков</h3><p>Отбор проб и контроль на современном оборудовании.</p></article>
+    </div>
+  </section>
+
+  <section class="section" id="objects">
+    <p class="sec-h reveal">Объекты</p>
+    <h2 class="sec-t reveal">Площадки</h2>
+    <div class="projects">
+      <article class="proj reveal"><img src="../assets/pruzhany.png" alt="" loading="lazy" /><div class="meta"><span>Стоки</span><h3>Пружаны</h3></div></article>
+      <article class="proj reveal"><img src="../assets/saria.png" alt="" loading="lazy" /><div class="meta"><span>Перекрытия</span><h3>Сария</h3></div></article>
+      <article class="proj reveal"><img src="../assets/savushkin.png" alt="" loading="lazy" /><div class="meta"><span>Вентиляция</span><h3>Савушкин</h3></div></article>
+      <article class="proj reveal"><img src="../assets/santa-bremor.png" alt="" loading="lazy" /><div class="meta"><span>Вентиляция</span><h3>Санта Бремор</h3></div></article>
+      <article class="proj reveal"><img src="../assets/dobrush.png" alt="" loading="lazy" /><div class="meta"><span>Стоки</span><h3>Добруш</h3></div></article>
+      <article class="proj reveal"><img src="../assets/brest-delovoy.png" alt="" loading="lazy" /><div class="meta"><span>Вентиляция</span><h3>Брест Деловой</h3></div></article>
+    </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <div class="text reveal">
+      <h2>Техническая консультация</h2>
+      <p>Брест, ул. Коммерческая, 28 · будни 8:30–17:00</p>
+      <a class="btn" href="tel:+375296746884">Оставить заявку</a>
+    </div>
+    <div class="phone reveal">
+      <a href="tel:+375296746884">+375 29 674-68-84</a>
+      <span>Viber / телефон инженера</span>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <img class="logo" src="../assets/logo-eko.png" width="140" height="46" alt="" />
+  <span>ИООО «Эко-Энерго» · Customs Union · EU</span>
+</footer>
+</div>
+
+<script>
+(() => {
+  const nodes = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) {
+    nodes.forEach(n => n.classList.add('in'));
+    return;
+  }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    });
+  }, { threshold: 0.14, rootMargin: '0px 0px -6% 0px' });
+  nodes.forEach(n => io.observe(n));
+})();
+</script>
+</body>
+</html>

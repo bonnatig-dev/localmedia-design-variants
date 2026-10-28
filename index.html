@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Эко-Энерго — два варианта главной</title>
+<style>
+  :root{--ink:#12161a;--muted:#5a6570;--line:#dde3e8;--bg:#eef1f4}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,sans-serif;background:var(--bg);color:var(--ink)}
+  header{max-width:1100px;margin:0 auto;padding:48px 28px 20px}
+  h1{font-size:clamp(28px,4vw,40px);letter-spacing:-.03em;margin:0 0 10px}
+  header p{margin:0;color:var(--muted);max-width:56ch;line-height:1.5}
+  .grid{max-width:1100px;margin:0 auto;padding:20px 28px 64px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  a.card{display:block;background:#fff;border:1px solid var(--line);text-decoration:none;color:inherit;overflow:hidden}
+  a.card:hover{border-color:#9aabb8}
+  .thumb{aspect-ratio:16/10;background:#1c1f22;overflow:hidden;position:relative}
+  .thumb iframe{width:1440px;height:900px;border:0;transform:scale(.33);transform-origin:top left;pointer-events:none;position:absolute;left:0;top:0}
+  .meta{padding:18px}
+  .meta strong{display:block;font-size:18px;margin-bottom:6px;letter-spacing:-.02em}
+  .meta span{color:var(--muted);font-size:14px;line-height:1.45;display:block}
+  .meta em{display:block;margin-top:12px;font-style:normal;font-size:13px;color:#0b3d6e;font-weight:600}
+  @media(max-width:800px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <h1>Два варианта главной</h1>
+  <p>Официальный логотип, реальные фото объектов, одинаковое содержание. Отличаются визуальной системой. Откройте вариант целиком и сравните.</p>
+</header>
+<div class="grid">
+  <a class="card" href="clean-water.html">
+    <div class="thumb"><iframe src="clean-water.html" tabindex="-1" title="Clean Water preview"></iframe></div>
+    <div class="meta">
+      <strong>A · Clean Water Engineering</strong>
+      <span>Светлый, технологичный: белый, глубокий синий, холодный голубой. Много воздуха, крупные фото сооружений.</span>
+      <em>Открыть вариант A →</em>
+    </div>
+  </a>
+  <a class="card" href="industrial.html">
+    <div class="thumb"><iframe src="industrial.html" tabindex="-1" title="Industrial preview"></iframe></div>
+    <div class="meta">
+      <strong>B · Industrial Eco Systems</strong>
+      <span>Серьёзный B2B: графит, сталь, сине-зелёный акцент. Инженерная сетка, крупные технические заголовки.</span>
+      <em>Открыть вариант B →</em>
+    </div>
+  </a>
+</div>
+</body>
+</html>
